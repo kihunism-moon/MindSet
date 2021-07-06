@@ -3,11 +3,9 @@ package com.example.mindset.mindset
 fun main(args: Array<String>) {
 
     memory()
-    cut()
     oneWord()
-    cut()
     listPrintln()
-    cut()
+    propertiesAndField()
 
 }
 
@@ -26,6 +24,7 @@ fun memory() {
     val anotherBoxedA: Int? = a
 
     println(boxedA === anotherBoxedA)
+    cut()
 
 }
 
@@ -38,6 +37,7 @@ fun oneWord() {
     for(ch in name) {
         println("charAp($ch)")
     }
+    cut()
 }
 
 fun listPrintln() {
@@ -47,4 +47,42 @@ fun listPrintln() {
     for(ch in list) {
         println(" -->  $ch")
     }
+    cut()
+}
+
+class Ex {
+    private val no: String by lazy {
+        println("---lazy init---")
+        "lazy init"
+    }
+
+
+
+}
+
+fun propertiesAndField() {
+
+    var name: String = "Name" // var name = String 과 같음
+    var name2 = "MoonKihoon"
+    name = "abc chocolate"
+
+    var name3: String? = null
+//  여기서 사용된 String? 은 기존의 String과는 다른 자료형이다!!
+
+
+
+    cut()
+}
+
+class Sample<T> {
+    var list: List<T> = mutableListOf()
+        set(value) {
+            if(value.isNotEmpty()) {
+                field = value
+            }
+        }
+        get() = field
+
+    val isEmpty: Boolean
+        get() = this.list.isEmpty()
 }
